@@ -150,5 +150,45 @@ void set_acceleration_rate(Car car, double acceleration)
 
 void accelerate(Car car)
 {
-  car->speed = 4;
+  for (int i = 0; i < CAR_PARK; i++)
+  {
+    if (car == car_park[i])
+    {
+      double accAdded = car_park[i]->speed += car_park[i]->acceleration * 3.6;
+
+        if (car_park[i]->type == AIXAM)
+        {
+          if (accAdded > 45)
+          {
+            car_park[i]->speed = 45;
+          }
+          else
+          {
+            car_park[i]->speed = accAdded;
+          }
+        }
+        if (car_park[i]->type == FIAT_MULTIPLA)
+        {
+          if (accAdded > 170)
+          {
+            car_park[i]->speed = 170;
+          }
+          else
+          {
+            car_park[i]->speed = accAdded;
+          }
+        }
+        if (car_park[i]->type == JEEP)
+        {
+          if (accAdded > 196)
+          {
+            car_park[i]->speed = 196;
+          }
+          else
+          {
+            car_park[i]->speed = accAdded;
+          }
+        }
+    }
+  }
 }
