@@ -39,7 +39,7 @@ Car get_car(CarType type)
 {
   for (int i = 0; i < CAR_PARK; i++)
   {
-    if (type == car_park[i]->type && car_park[i]->rented == false)
+    if (car_park[i]->type == type && car_park[i]->rented == false)
     {
       car_park[i]->rented = true;
       return car_park[i];
@@ -77,6 +77,7 @@ void init()
 {
   for (int i = 0; i < CAR_PARK; i++)
   {
+    car_park[i]->rented = false;
     car_park[i]->acceleration = 0;
     car_park[i]->speed = 0;
 
